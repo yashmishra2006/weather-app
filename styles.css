@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #FFF;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.weather-box {
+  background-color: #FFF;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.weather-icon img {
+  width: 100px;
+}
+
+.temperature-value {
+  font-size: 50px;
+  font-weight: 700;
+}
+
+.temperature-description {
+  font-size: 20px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  padding: 10px;
+}
+
+footer p {
+  font-size: 14px;
+  color: #999;
+}
+
+
+
+ /* < !DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Weather App | Yash Mishra</title><link rel="stylesheet" href="styles.css"><script src="script.js" defer></script><link rel="icon" href="favicon.ico" type="image/x-icon"></head><body><div class="container"><div class="search-box"><input type="text" class="search-bar" placeholder="Search for a city..."></div><div class="weather-box"><div class="weather-icon"></div><div class="temperature-value"></div><div class="temperature-description"></div><div class="location"></div><div class="text"><p>Fetching your location...,
+ please provide location access to your browser.</p></div></div></div><footer><p>Fetched from <a href="https://openweathermap.org/" target="_blank">OpenWeatherMap</a></p><p>Designed by Yash Mishra</p></footer></body></html>
+  */
+
+
+.search-box {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.search-bar:focus {
+    outline: none;
+}
