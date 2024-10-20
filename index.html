@@ -1,32 +1,41 @@
- <!DOCTYPE html>
- <html lang="en">
- <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App | Yash Mishra</title>
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
- </head>
- <body>
+</head>
+<body>
+
+  <!-- Header with theme toggle -->
+  <header>
+    <div class="theme-toggle">
+      <label class="switch">
+        <input type="checkbox" id="theme-toggle">
+        <span class="slider round"></span>
+        <span class="icon sun">☀️</span>
+        <span class="icon moon">🌙</span>
+      </label>
+    </div>
+    
+  </header>
 
   <div class="container">
     <div class="search-box">
       <input type="text" class="search-bar" placeholder="Search for a city...">
     </div>
     <div class="weather-box">
-      <div class="weather-icon">
-      </div>
-      <div class="temperature-value">
-      </div>
-      <div class="temperature-description">
-      </div>
-      <div class="location">
-      </div>
+      <div class="weather-icon"></div>
+      <div class="temperature-value"></div>
+      <div class="temperature-description"></div>
+      <div class="location"></div>
       <div class="text">
-        <p>Fetching your location..., please provide location access to your browser.</p>     
+        <p>Fetching your location..., please provide location access to your browser.</p>
+      </div>
     </div>
-  </div>
   </div>
 
   <footer>
@@ -34,6 +43,5 @@
     <p>Designed by Yash Mishra</p>
   </footer>
 
-  
- </body>
- </html>
+</body>
+</html>

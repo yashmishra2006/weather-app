@@ -8,12 +8,37 @@ window.addEventListener('load', () => {
   let weatherIcon = document.querySelector('.weather-icon');
   let text = document.querySelector('.text');
   let searchBox = document.querySelector('.search-bar');
+  const themeToggle = document.getElementById('theme-toggle');
+  const weatherBox = document.querySelector('.weather-box');
+
+  // Check if the user has a saved theme preference in localStorage
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme) {
+    document.body.classList.add(savedTheme);
+    weatherBox.classList.add(savedTheme);
+    temperatureDegree.classList.add(savedTheme);
+    themeToggle.checked = savedTheme === 'dark';
+  }
+
+  // Add event listener for the toggle switch
+  themeToggle.addEventListener('change', () => {
+    if (themeToggle.checked) {
+      document.body.classList.add('dark');
+      weatherBox.classList.add('dark');
+      temperatureDegree.classList.add('dark');
+      localStorage.setItem('theme', 'dark'); // Save theme preference
+    } else {
+      document.body.classList.remove('dark');
+      weatherBox.classList.remove('dark');
+      temperatureDegree.classList.remove('dark');
+      localStorage.setItem('theme', 'light'); // Save theme preference
+    }
+  });
 
   function fetchWeather(api) {
     fetch(api)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (parseInt(data.cod) > 400) {
           text.textContent = capitalizeFirstLetter(data.message);
           temperatureDegree.textContent = '';
