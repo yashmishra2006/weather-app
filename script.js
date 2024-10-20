@@ -62,6 +62,10 @@ window.addEventListener('load', () => {
         favicon.href = `${baseURL}${icon}@2x.png`;
 
         text.textContent = '';
+      })
+      .catch((error) => {
+        text.textContent = 'Error fetching weather data.';
+        console.error(error);
       });
   }
 
@@ -79,6 +83,8 @@ window.addEventListener('load', () => {
       lat = position.coords.latitude;
       const api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=a5f698de4c2ff45712e1276495f3213e&units=metric`;
       fetchWeather(api);
+    }, () => {
+      text.textContent = 'Unable to retrieve your location.';
     });
   } else {
     text.textContent = 'Please enable location access to your browser.';

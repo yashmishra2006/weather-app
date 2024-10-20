@@ -22,7 +22,7 @@ body {
 }
 
 .weather-box {
-  background-color: whitesmoke;
+  background-color: #FFF;
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
@@ -74,6 +74,16 @@ footer p {
   outline: none;
 }
 
+/* Light Theme (Default) */
+body {
+  background-color: #FFF;
+  color: #333;
+}
+
+.weather-box {
+  background-color: #FFF;
+}
+
 /* Dark Theme */
 body.dark {
   background-color: #181818;
@@ -89,11 +99,19 @@ body.dark {
 }
 
 /* Toggle Switch Styling */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
+  margin-right: 10px; /* Space between toggle and text */
 }
 
 .switch input {
@@ -130,6 +148,34 @@ input:checked + .slider {
 
 input:checked + .slider:before {
   transform: translateX(26px);
+}
+
+/* Positioning the icons */
+.icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: opacity 0.4s ease;
+}
+
+.icon.sun {
+  left: 8px;
+  color: #FFD700; /* Gold color for the sun */
+}
+
+.icon.moon {
+  right: 8px;
+  color: #f5f5f5; /* Light color for the moon */
+  opacity: 0; /* Hidden by default */
+}
+
+input:checked + .slider .icon.sun {
+  opacity: 0; /* Hide sun in dark mode */
+}
+
+input:checked + .slider .icon.moon {
+  opacity: 1; /* Show moon in dark mode */
 }
 
 .slider.round {
