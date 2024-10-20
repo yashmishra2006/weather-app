@@ -13,6 +13,7 @@ body {
   line-height: 1.6;
   font-size: 16px;
   padding: 20px;
+  position: relative; /* Needed for absolute positioning of theme toggle */
 }
 
 .container {
@@ -25,7 +26,7 @@ body {
   background-color: #FFF;
   border-radius: 10px;
   padding: 20px;
-  margin-top: 20px;
+  margin-top: 20px; /* Margin for weather box */
 }
 
 .weather-icon img {
@@ -35,7 +36,6 @@ body {
 .temperature-value {
   font-size: 50px;
   font-weight: 700;
-  color: #333; /* Default color for light mode */
 }
 
 .temperature-description {
@@ -55,8 +55,17 @@ footer p {
   color: #999;
 }
 
+footer a {
+  color: #007BFF; /* Change link color to blue in light mode */
+  text-decoration: none; /* Remove underline from links */
+}
+
+footer a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
 .search-box {
-  margin-top: 20px;
+  margin: 40px 0 20px; /* Add top margin to search box */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -74,114 +83,53 @@ footer p {
   outline: none;
 }
 
-/* Light Theme (Default) */
-body {
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: absolute; /* Set to absolute for positioning */
+  left: 20px; /* Move to far left with padding */
+  margin-top: 5px; /* Adjust margin as needed */
+  top: 20px; /* Move it higher up */
+}
+
+.theme-icon {
+  width: 50px; /* Adjust size as needed */
+  margin-right: 10px; /* Space between icon and text */
+}
+
+/* Dark mode styles */
+body.dark {
+  background-color: #333;
+  color: #FFF;
+}
+
+body.dark .weather-box {
+  background-color: #444;
+}
+
+body.dark .temperature-value {
+  color: #FFF; /* Change temperature text color to white in dark mode */
+}
+
+body.dark footer p {
+  color: #EEE; /* Change footer text color to light gray for better readability */
+}
+
+body.dark footer a {
+  color: #1E90FF; /* Change link color to a brighter blue in dark mode */
+}
+
+body.dark footer a:hover {
+  text-decoration: underline; /* Underline on hover for links */
+}
+
+/* Light mode styles */
+body.light {
   background-color: #FFF;
   color: #333;
 }
 
-.weather-box {
+body.light .weather-box {
   background-color: #FFF;
-}
-
-/* Dark Theme */
-body.dark {
-  background-color: #181818;
-  color: #f5f5f5;
-}
-
-.weather-box.dark {
-  background-color: #333;
-}
-
-.temperature-value.dark {
-  color: #f5f5f5; /* Font color for temperature in dark mode */
-}
-
-/* Toggle Switch Styling */
-.theme-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  margin-right: 10px; /* Space between toggle and text */
-}
-
-.switch input {
-  display: none;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
-
-/* Positioning the icons */
-.icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 18px;
-  transition: opacity 0.4s ease;
-}
-
-.icon.sun {
-  left: 8px;
-  color: #FFD700; /* Gold color for the sun */
-}
-
-.icon.moon {
-  right: 8px;
-  color: #f5f5f5; /* Light color for the moon */
-  opacity: 0; /* Hidden by default */
-}
-
-input:checked + .slider .icon.sun {
-  opacity: 0; /* Hide sun in dark mode */
-}
-
-input:checked + .slider .icon.moon {
-  opacity: 1; /* Show moon in dark mode */
-}
-
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
 }

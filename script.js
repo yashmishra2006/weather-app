@@ -17,21 +17,23 @@ window.addEventListener('load', () => {
     document.body.classList.add(savedTheme);
     weatherBox.classList.add(savedTheme);
     temperatureDegree.classList.add(savedTheme);
-    themeToggle.checked = savedTheme === 'dark';
+    themeToggle.src = savedTheme === 'dark' ? 'moon.png' : 'sun.png'; // Set initial icon
   }
 
-  // Add event listener for the toggle switch
-  themeToggle.addEventListener('change', () => {
-    if (themeToggle.checked) {
-      document.body.classList.add('dark');
-      weatherBox.classList.add('dark');
-      temperatureDegree.classList.add('dark');
-      localStorage.setItem('theme', 'dark'); // Save theme preference
-    } else {
+  // Add event listener for the icon
+  themeToggle.addEventListener('click', () => {
+    if (document.body.classList.contains('dark')) {
       document.body.classList.remove('dark');
       weatherBox.classList.remove('dark');
       temperatureDegree.classList.remove('dark');
+      themeToggle.src = 'sun.png'; // Show sun icon
       localStorage.setItem('theme', 'light'); // Save theme preference
+    } else {
+      document.body.classList.add('dark');
+      weatherBox.classList.add('dark');
+      temperatureDegree.classList.add('dark');
+      themeToggle.src = 'moon.png'; // Show moon icon
+      localStorage.setItem('theme', 'dark'); // Save theme preference
     }
   });
 
